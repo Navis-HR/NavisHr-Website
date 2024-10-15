@@ -31,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +57,8 @@
     "@types/swiper": "^5.4.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13"
-  }
+    "tailwindcss": "^3.4.13",
+    "gh-pages": "^5.0.0"
+  },
+  "homepage": "https://navis-hr.github.io/NavisHr-Website"
 }
