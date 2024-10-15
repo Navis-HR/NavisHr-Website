@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/NavisHr-Website/static/css/main.ed035ce2.css",
-    "main.js": "/NavisHr-Website/static/js/main.24377cb6.js",
+    "main.js": "/NavisHr-Website/static/js/main.e00e09e5.js",
     "static/js/453.f435f4ff.chunk.js": "/NavisHr-Website/static/js/453.f435f4ff.chunk.js",
     "static/media/csr-3.jpg": "/NavisHr-Website/static/media/csr-3.c954c2804db18064ba87.jpg",
     "static/media/Slider3.jpg": "/NavisHr-Website/static/media/Slider3.f61a18d9328e944d70c7.jpg",
@@ -13,11 +13,11 @@
     "static/media/MitsuiSvg.svg": "/NavisHr-Website/static/media/MitsuiSvg.357a756c1f3648a40a4d1392cd14f536.svg",
     "index.html": "/NavisHr-Website/index.html",
     "main.ed035ce2.css.map": "/NavisHr-Website/static/css/main.ed035ce2.css.map",
-    "main.24377cb6.js.map": "/NavisHr-Website/static/js/main.24377cb6.js.map",
+    "main.e00e09e5.js.map": "/NavisHr-Website/static/js/main.e00e09e5.js.map",
     "453.f435f4ff.chunk.js.map": "/NavisHr-Website/static/js/453.f435f4ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ed035ce2.css",
-    "static/js/main.24377cb6.js"
+    "static/js/main.e00e09e5.js"
   ]
 }
