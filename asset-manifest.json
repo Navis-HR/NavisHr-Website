@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NavisHr-Website/static/css/main.ed035ce2.css",
-    "main.js": "/NavisHr-Website/static/js/main.c9bf455e.js",
+    "main.css": "/NavisHr-Website/static/css/main.7b6b958b.css",
+    "main.js": "/NavisHr-Website/static/js/main.aed59073.js",
     "static/js/453.f435f4ff.chunk.js": "/NavisHr-Website/static/js/453.f435f4ff.chunk.js",
     "static/media/csr-3.jpg": "/NavisHr-Website/static/media/csr-3.c954c2804db18064ba87.jpg",
     "static/media/Slider3.jpg": "/NavisHr-Website/static/media/Slider3.f61a18d9328e944d70c7.jpg",
@@ -12,12 +12,12 @@
     "static/media/MeghalayaSvg.svg": "/NavisHr-Website/static/media/MeghalayaSvg.9adc78c35864e0c0ffb76d1264474a67.svg",
     "static/media/MitsuiSvg.svg": "/NavisHr-Website/static/media/MitsuiSvg.357a756c1f3648a40a4d1392cd14f536.svg",
     "index.html": "/NavisHr-Website/index.html",
-    "main.ed035ce2.css.map": "/NavisHr-Website/static/css/main.ed035ce2.css.map",
-    "main.c9bf455e.js.map": "/NavisHr-Website/static/js/main.c9bf455e.js.map",
+    "main.7b6b958b.css.map": "/NavisHr-Website/static/css/main.7b6b958b.css.map",
+    "main.aed59073.js.map": "/NavisHr-Website/static/js/main.aed59073.js.map",
     "453.f435f4ff.chunk.js.map": "/NavisHr-Website/static/js/453.f435f4ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed035ce2.css",
-    "static/js/main.c9bf455e.js"
+    "static/css/main.7b6b958b.css",
+    "static/js/main.aed59073.js"
   ]
 }
