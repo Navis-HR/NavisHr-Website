@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface DropdownProps {
   options: string[];
@@ -15,6 +16,23 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [selectedOption, setSelectedOption] = useState(
     defaultOption || options[0]
   );
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -29,7 +47,10 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+    <div
+      ref={dropdownRef}
+      className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+    >
       <button
         className="w-full px-3 sm:px-4 py-3 text-center bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ff0008] text-sm sm:text-base font-medium"
         onClick={handleToggle}
@@ -51,19 +72,27 @@ const Dropdown: React.FC<DropdownProps> = ({
           </svg>
         </span>
       </button>
-      {isOpen && (
-        <ul className="absolute z-10 w-full py-1 mt-1 overflow-auto text-sm sm:text-base bg-white rounded-md shadow-lg max-h-48 sm:max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {options.map((option) => (
-            <li
-              key={option}
-              className="text-gray-900 cursor-default select-none relative py-1 sm:py-2 pl-2 sm:pl-3 pr-9 hover:bg-blue-100 font-medium"
-              onClick={() => handleSelect(option)}
-            >
-              {option}
-            </li>
-          ))}
-        </ul>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute z-10 w-full py-1 mt-1 overflow-auto text-sm sm:text-base bg-white rounded-md shadow-lg max-h-48 sm:max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            {options.map((option) => (
+              <li
+                key={option}
+                className="text-gray-900 cursor-default select-none relative py-1 sm:py-2 pl-2 sm:pl-3 pr-9 hover:bg-blue-100 font-medium"
+                onClick={() => handleSelect(option)}
+              >
+                {option}
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
