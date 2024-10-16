@@ -19,11 +19,15 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: "/", icon: HomeOutlinedIcon, label: "Home" },
-  { href: "#", icon: PublicIcon, label: "Destination" },
-  { href: "#", icon: NewspaperIcon, label: "News" },
-  { href: "#", icon: BusinessCenterOutlinedIcon, label: "NAVIS HR" },
-  { href: "#", icon: PeopleAltOutlinedIcon, label: "Join NAVIS HR" },
-  { href: "#", icon: MailOutlinedIcon, label: "Contact" },
+  { href: "/destination", icon: PublicIcon, label: "Destination" },
+  { href: "/news", icon: NewspaperIcon, label: "News" },
+  { href: "/navis-hr", icon: BusinessCenterOutlinedIcon, label: "NAVIS HR" },
+  {
+    href: "/join-navis-hr",
+    icon: PeopleAltOutlinedIcon,
+    label: "Join NAVIS HR",
+  },
+  { href: "/contact", icon: MailOutlinedIcon, label: "Contact" },
 ];
 
 const NavBarItem: React.FC<
@@ -71,14 +75,22 @@ const NavBar: React.FC = () => {
     <nav
       className={`w-full ${isSticky ? "fixed md:top-5 left-0 right-0 z-50" : ""}`}
     >
-      <div className="max-w-[1176px] mx-auto px-0 sm:px-0 md:px-4 lg:px-10 xl:px-24">
+      <div
+        className={`${
+          isSticky ? "max-w-full" : "max-w-[1176px]"
+        } mx-auto px-0 sm:px-6 md:px-4 lg:px-10 xl:px-24 transition-all duration-300`}
+      >
         <div
-          className={`h-[58px] md:rounded-full shadow-lg bg-white flex items-center justify-between px-4 sm:px-6 lg:px-8 text-[16px] leading-[26px] font-semibold ${isSticky ? "shadow-lg" : ""}`}
+          className={`h-[58px] md:rounded-full shadow-lg bg-white flex items-center justify-between px-4 sm:px-6 lg:px-8 text-[16px] leading-[26px] font-semibold ${
+            isSticky ? "shadow-lg" : ""
+          }`}
         >
-          {/* Add logo for mobile view */}
-          <div className="md:hidden">
-            <img src={Logo} alt="Logo" className=" h-8" />
-          </div>
+          {/* Conditionally render logo when sticky */}
+          {isSticky && (
+            <div className="hidden md:flex items-center">
+              <img src={Logo} alt="Logo" className="h-7" />
+            </div>
+          )}
           <div className="hidden md:flex items-center justify-between flex-grow space-x-2 lg:space-x-4 lg:px-9 xl:px-14">
             {navItems.map((item, index) => (
               <NavBarItem
@@ -89,8 +101,11 @@ const NavBar: React.FC = () => {
               />
             ))}
           </div>
-          <div className="md:hidden ml-auto">
-            <button onClick={toggleMenu}>
+          <div className="md:hidden ml-auto flex items-center justify-between w-full">
+            {/* Add logo to the left end */}
+            <img src={Logo} alt="Logo" className="h-7" />
+            {/* Menu icon on the right end */}
+            <button onClick={toggleMenu} className="ml-auto">
               {isMenuOpen ? (
                 <FaTimes className="w-6 h-6" />
               ) : (
@@ -100,7 +115,7 @@ const NavBar: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Burger Menu */}
+      {/* Hamburger Menu */}
       <div
         className={`lg:hidden bg-white shadow-md overflow-hidden transition-all duration-700 ease-in-out ${
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 shadow-md"

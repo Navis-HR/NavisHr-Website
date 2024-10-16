@@ -13,14 +13,9 @@ const SearchContainer: React.FC = () => {
   const [selectedOffers, setSelectedOffers] = React.useState<string[]>([]);
 
   const toggleOffer = (location: string) => {
-    setSelectedOffers((prev) =>
-      prev.includes(location)
-        ? prev.filter((item) => item !== location)
-        : [...prev, location]
-    );
+    setSelectedOffers([location]);
   };
 
-  // Create an object to map locations to their respective SVG components
   const locationIcons: {
     [key: string]: React.FC<React.SVGProps<SVGSVGElement>>;
   } = {
